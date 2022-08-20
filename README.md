@@ -2,36 +2,56 @@
 
 [Nest](https://github.com/nestjs/nest) Starter project
 
+* * *
+
 ## Installation
 
-
 ```bash
+# clone repository
+git clone https://github.com/seeren/nestjs-starter.git
+
+# change directory
+cd nestjs-starter
+
 # install dependencies
-$ npm install
+npm install
 ```
 
-## Running the app
+## Developpement
+
+### Server
 
 ```bash
 # development
-$ npm start
+npm start
 
-# production mode
-$ npm run start:prod
+# debug mode
+npm run start:debug
 ```
 
-## Test
+### ORM
 
+`.env`, `.production.env` and `.test.env` describe database access. Drive is managed in `src/app/shared/config/database/database.config.ts`
+
+
+ used in default MariaDB
 ```bash
-# unit tests
-$ npm run test
+# create entity
+npm run entity:create <path-to-entity>
 
-# e2e tests
-$ npm run test:e2e
+# create empty migration
+npm run migration:create
 
-# test coverage
-$ npm run test:cov
+# generate migration
+npm run migration:generate
+
+# execute migration
+npm run migration:run
+
+# cancel migration
+npm run migration:revert
 ```
+
 
 ## License
 
