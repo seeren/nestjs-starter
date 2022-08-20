@@ -4,6 +4,7 @@ import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { Config } from './config';
 
 import { DatabaseModule } from './database/database.module';
+import { I18nModule } from './i18n/i18n.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { DatabaseModule } from './database/database.module';
       isGlobal: false,
     }),
     DatabaseModule,
+    I18nModule,
   ],
 })
 export class ConfigModule {}
