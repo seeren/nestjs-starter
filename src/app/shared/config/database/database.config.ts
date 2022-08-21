@@ -1,9 +1,12 @@
-import { MariaDBConfig } from './mariadb.config';
-
 export const DatabaseConfig = (cli = false) => {
   const baseDir = cli ? 'src' : 'dist';
   return {
-    ...MariaDBConfig(),
+    type: process.env.DATABASE_DRIVER,
+    host: process.env.DATABASE_HOST,
+    port: parseInt(process.env.DATABASE_PORT),
+    database: process.env.DATABASE_NAME,
+    username: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
     entities: [`${baseDir}/**/*.entity{.ts,.js}`],
     autoLoadEntities: true,
     synchronize: false,
