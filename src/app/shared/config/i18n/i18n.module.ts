@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import {
   AcceptLanguageResolver,
   I18nModule as I18nNestModule,
+  I18nYamlLoader,
   QueryResolver,
 } from 'nestjs-i18n';
 
@@ -17,6 +18,7 @@ import {
         { use: QueryResolver, options: ['lang'] },
         AcceptLanguageResolver,
       ],
+      loader: I18nYamlLoader,
     }),
   ],
 })
