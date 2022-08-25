@@ -1,41 +1,61 @@
 ## Description
 
-[Nest](https://github.com/nestjs/nest) Starter project
+[Nest](https://github.com/nestjs/nest) Starter project with **environment config**, **typeorm** and **nestjs-i18n** integration
 
 * * *
 
 ## Installation
 
 ```bash
-# clone repository
 git clone https://github.com/seeren/nestjs-starter.git
-
-# change directory
-cd nestjs-starter
-
-# install dependencies
-npm install
 ```
+
+* * *
 
 ## Developpement
 
-### Server
+### Docker usage
+
+_[Dockerfile](./Dockerfile) is adapted for arm arch adapt as needed_
 
 ```bash
-# development
-npm start
-
-# debug mode
-npm run start:debug
+# Build then run image
+docker-compose up -d
 ```
 
-### ORM
+Container is named `nestjs-starter` to execute commands
 
-`.env`, `.production.env` and `.test.env` describe database access. Drive is managed in `src/app/shared/config/database/database.config.ts`
-
-
- used in default MariaDB
 ```bash
+# Execute zsh
+docker exec -it nestjs-starter zsh
+```
+
+### Basic usage
+
+```bash
+# install dependencies
+npm install
+
+# development
+npm start
+```
+
+* * *
+
+## Environment
+
+_Docker and modules setup are stored in `.env`, `.production.env` and `.test.env`_
+
+* * *
+
+## ORM
+
+_Typeorm use configuration files_
+
+```bash
+# execute orm
+npm run typeorm
+
 # create entity
 npm run entity:create <path-to-entity>
 
@@ -52,6 +72,17 @@ npm run migration:run
 npm run migration:revert
 ```
 
+* * *
+
+## Translations
+
+_Translation fallback language is in configuration files_
+
+```env
+I18N_FALLBACK=en
+```
+
+* * *
 
 ## License
 
