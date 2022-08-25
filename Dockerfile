@@ -1,7 +1,8 @@
-FROM node:16.15.1-alpine
-RUN apk add --no-cache python3 g++ make && apk add zsh
-WORKDIR /nestjs-starter
-COPY . .
+FROM node:16.15.1-alpine AS development
+RUN apk add zsh
+WORKDIR /projects/nestjs-starter
+COPY package*.json ./
 RUN npm install
-CMD ["npm", "start"]
+COPY . .
+RUN npm run build
 EXPOSE 3000
