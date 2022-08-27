@@ -1,8 +1,10 @@
-FROM node:16.15.1-alpine AS development
+FROM node:18.8.0-alpine AS development
 RUN apk add zsh
-WORKDIR /projects/nestjs-starter
-COPY package*.json ./
-RUN npm install
-COPY . .
+WORKDIR /apps/nestjs-starter
+COPY --chown=node:node package*.json ./
+RUN npm ci
+COPY --chown=node:node . .
 RUN npm run build
 EXPOSE 3000
+USER node
+
