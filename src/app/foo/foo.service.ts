@@ -1,0 +1,31 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+
+import { DeleteResult, InsertResult, Repository } from 'typeorm';
+
+import { Foo } from './foo.entity';
+
+@Injectable()
+export class FooService {
+  constructor(
+    @InjectRepository(Foo)
+    private fooRepository: Repository<Foo>,
+  ) {}
+
+  findAll(): Promise<Foo[]> {
+    return this.fooRepository.find();
+  }
+
+  findOne(id: number): Promise<Foo> {
+    return this.fooRepository.findOneBy({ id });
+  }
+
+  async insert(): Promise<InsertResult> {
+    return await this.fooRepository.insert({
+      random: Math.random(),
+    });
+  }
+  async delete(id: number): Promise<DeleteResult> {
+    return await this.fooRepository.delete(id);
+  }
+}
