@@ -1,25 +1,28 @@
 version: "3.7"
 services:
 
-  api:
-    container_name: nestjs-starter
+  dev:
+    container_name: nestjs-starter_dev
+    env_file:
+      - .env.local
+      - .env.developement.local
     build:
       context: .
       dockerfile: Dockerfile
       target: development
     volumes:
-      - .:///projects/nestjs-starter
-      - ./projects/nestjs-starter/node_modules
+      - ./:/apps/nestjs-starter
+      - /apps/nestjs-starter/node_modules
     environment:
       MYSQL_HOST: ${DATABASE_HOST}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
       MYSQL_DB: ${DATABASE_NAME}
-    command: npm run start
     depends_on: 
       - mysql
     ports:
-      - 3000:3000
+      - ${PORT}:3000
+    command: npm run start
 
   mysql:
       container_name: nestjs-starter-mysql
