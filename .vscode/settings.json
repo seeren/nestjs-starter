@@ -1,0 +1,43 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.rulers": [
+      {
+        "column": 80,
+        "color": "#e0f2fe"
+      },
+      {
+        "column": 100,
+        "color": "#fef3c7"
+      },
+      {
+        "column": 120,
+        "color": "#fee2e2"
+      }
+    ],
+    "eslint.format.enable": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[yaml]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "mrmlnc.vscode-remark"
+    },
+    "scss.lint.unknownAtRules": "ignore"
+  }
