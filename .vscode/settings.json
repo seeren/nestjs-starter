@@ -21,16 +21,10 @@
     "[typescript]": {
       "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
     "[html]": {
       "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[json]": {
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    },
-    "[scss]": {
       "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[yaml]": {
@@ -38,6 +32,5 @@
     },
     "[markdown]": {
       "editor.defaultFormatter": "mrmlnc.vscode-remark"
-    },
-    "scss.lint.unknownAtRules": "ignore"
+    }
   }

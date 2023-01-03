@@ -8,9 +8,16 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'eslint:recommended',
+    'airbnb-typescript/base',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'plugin:import/errors',
   ],
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
+  },
   root: true,
   env: {
     node: true,
