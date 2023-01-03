@@ -1,7 +1,12 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app/app.module';
+import { AppModule } from 'src/app/app.module';
 
-declare const module: any;
+declare const module: {
+  hot: {
+    accept: () => void;
+    dispose: (callable: () => Promise<void>) => void;
+  };
+};
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);

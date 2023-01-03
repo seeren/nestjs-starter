@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { Foo } from './foo.entity';
-import { FooService } from './foo.service';
+import { Foo } from 'src/app/foo/foo.entity';
+import { FooService } from 'src/app/foo/foo.service';
 
 @Controller('foo')
 export class FooController {
@@ -8,21 +8,21 @@ export class FooController {
 
   @Get()
   async findAll(): Promise<Foo[]> {
-    return await this.fooService.findAll();
+    return this.fooService.findAll();
   }
 
   @Get('insert')
   async insert() {
-    return await this.fooService.insert();
+    return this.fooService.insert();
   }
 
   @Get('delete/:id')
   async delete(@Param('id') id: number) {
-    return await this.fooService.delete(id);
+    return this.fooService.delete(id);
   }
 
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Foo> {
-    return await this.fooService.findOne(id);
+    return this.fooService.findOne(id);
   }
 }

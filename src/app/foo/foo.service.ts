@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { DeleteResult, InsertResult, Repository } from 'typeorm';
 
-import { Foo } from './foo.entity';
+import { Foo } from 'src/app/foo/foo.entity';
 
 @Injectable()
 export class FooService {
@@ -21,11 +21,12 @@ export class FooService {
   }
 
   async insert(): Promise<InsertResult> {
-    return await this.fooRepository.insert({
+    return this.fooRepository.insert({
       random: Math.random(),
     });
   }
+
   async delete(id: number): Promise<DeleteResult> {
-    return await this.fooRepository.delete(id);
+    return this.fooRepository.delete(id);
   }
 }

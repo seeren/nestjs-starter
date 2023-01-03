@@ -1,5 +1,5 @@
-import { DatabaseConfig } from './database/database.config';
-import { I18nConfig } from './i18n/i18n.config';
+import { DatabaseConfig } from 'src/app/shared/config/database/database.config';
+import { I18nConfig } from 'src/app/shared/config/i18n/i18n.config';
 
 export const Config = () => ({
   database: DatabaseConfig(),
