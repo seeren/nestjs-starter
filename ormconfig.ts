@@ -1,11 +1,11 @@
-import { DataSource, DataSourceOptions } from 'typeorm';
-
+import type { DataSourceOptions } from 'typeorm';
+import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 
-import { DatabaseConfig } from './src/app/shared/config/database/database.config';
+import databaseConfig from './src/config/database.config';
 
 config();
 
 export default new DataSource({
-  ...(DatabaseConfig(true) as DataSourceOptions),
+  ...(databaseConfig(true) as DataSourceOptions),
 });

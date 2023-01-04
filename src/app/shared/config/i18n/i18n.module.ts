@@ -7,11 +7,13 @@ import {
   QueryResolver,
 } from 'nestjs-i18n';
 
+import i18nConfig from 'src/config/i18n.config';
+
 @Module({
   imports: [
     ConfigModule,
     I18nNestModule.forRootAsync({
-      imports: [ConfigModule],
+      imports: [ConfigModule.forFeature(i18nConfig)],
       useFactory: (configService: ConfigService) => ({
         fallbackLanguage:
           configService.get<Record<string, string>>('i18n').fallback,
