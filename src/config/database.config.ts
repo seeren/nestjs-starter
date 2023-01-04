@@ -1,4 +1,6 @@
-export const DatabaseConfig = (cli = false) => {
+import { registerAs } from '@nestjs/config';
+
+export default registerAs('database', (cli = false) => {
   const baseDir = cli ? 'src' : 'dist';
   return {
     type: process.env.DATABASE_DRIVER,
@@ -12,4 +14,4 @@ export const DatabaseConfig = (cli = false) => {
     synchronize: false,
     migrations: [`${baseDir}/migrations/*{.ts,.js}`],
   };
-};
+});
