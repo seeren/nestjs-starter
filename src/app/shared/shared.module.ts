@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 
-import { ConfigModule } from 'src/app/shared/config/config.module';
+import { ConfigurationsModule } from 'src/app/shared/configurations/configurations.module';
+import { DatabasesModule } from './databases/databases.module';
+import { TranslationsModule } from './translations/translations.module';
 
 @Module({
-  imports: [ConfigModule],
-  controllers: [],
-  providers: [],
+  imports: [ConfigurationsModule, DatabasesModule, TranslationsModule],
 })
 export class SharedModule {}

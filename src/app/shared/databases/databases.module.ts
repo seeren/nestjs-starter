@@ -17,4 +17,4 @@ import databaseConfig from 'src/config/database.config';
     }),
   ],
 })
-export class DatabaseModule {}
+export class DatabasesModule {}
