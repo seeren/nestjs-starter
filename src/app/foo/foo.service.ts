@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-
-import { DeleteResult, InsertResult, Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 
 import { Foo } from 'src/app/foo/foo.entity';
+import { FooDto } from 'src/app/foo/foo.dto';
 
 @Injectable()
 export class FooService {
@@ -16,14 +16,12 @@ export class FooService {
     return this.fooRepository.find();
   }
 
-  findOne(id: number): Promise<Foo> {
+  findOne(id: number): Promise<Foo | null> {
     return this.fooRepository.findOneBy({ id });
   }
 
-  async insert(): Promise<InsertResult> {
-    return this.fooRepository.insert({
-      random: Math.random(),
-    });
+  async insert(fooDto: FooDto): Promise<Foo> {
+    return this.fooRepository.save(fooDto);
   }
 
   async delete(id: number): Promise<DeleteResult> {
