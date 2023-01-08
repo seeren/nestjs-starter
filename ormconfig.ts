@@ -7,5 +7,5 @@ import databaseConfig from './src/config/database.config';
 config();
 
 export default new DataSource({
-  ...(databaseConfig(true) as DataSourceOptions),
+  ...(databaseConfig('src') as DataSourceOptions),
 });
