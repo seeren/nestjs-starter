@@ -22,6 +22,8 @@ services:
       - mysql
     ports:
       - ${PORT}:3000
+    extra_hosts:
+      - ${HOST}:127.0.0.1
     command: npm run start
 
   mysql:
