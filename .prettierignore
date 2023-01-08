@@ -1,6 +1,6 @@
-.vscode
-/node_modules
+/.dockerignore
+/.vscode
 /coverage
 /dist
-/.dockerignore
+/node_modules
 /Dockerfile
