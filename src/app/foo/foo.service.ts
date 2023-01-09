@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 
 import { Foo } from 'src/app/foo/foo.entity';
-import { FooDto } from 'src/app/foo/foo.dto';
+import { CreateFooDto } from 'src/app/foo/create-foo.dto';
 
 @Injectable()
 export class FooService {
@@ -20,7 +20,7 @@ export class FooService {
     return this.fooRepository.findOneBy({ id });
   }
 
-  async insert(fooDto: FooDto): Promise<Foo> {
+  async insert(fooDto: CreateFooDto): Promise<Foo> {
     return this.fooRepository.save(fooDto);
   }
 
