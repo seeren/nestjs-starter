@@ -1,13 +1,16 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Foo {
-  @ApiProperty()
+  /**
+   * Identifier
+   */
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ApiProperty()
+  /**
+   * A random value
+   */
   @Column()
   random: number;
 }
