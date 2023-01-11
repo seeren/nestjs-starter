@@ -1,3 +1,5 @@
+/* eslint-disable max-lines-per-function */
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from 'src/app/app.module';
@@ -9,8 +11,16 @@ declare const module: {
   };
 };
 
+
+
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+    }),
+  );
   const config = new DocumentBuilder()
     .setTitle('NestJS starter')
     .setDescription('A NestJS starter API example')
